@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 const BASE_URL = 'https://cdn.contentful.com';
-const empty = '';
+
 const spaceID = process.env.SPACE_ID;
 const API_KEY = process.env.API_KEY;
 
