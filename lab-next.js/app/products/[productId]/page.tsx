@@ -1,9 +1,9 @@
 import React from 'react';
-
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import axios from 'axios';
+
+const spaceID = process.env.SPACE_ID;
+const API_KEY = process.env.API_KEY;
 
 type ProductProps = {
   params: { productId: string };
@@ -14,7 +14,7 @@ const getProduct = async (productId: string) => {
     await axios({
       method: 'get',
       baseURL: 'https://cdn.contentful.com',
-      url: `/spaces/pary7vfe1hbq/environments/master/entries/${productId}?access_token=ZVD2u8m2XQaqMtNFZ3x6oF7e0cbi_gU23w7-FKrUSjE`,
+      url: `/spaces/${spaceID}/environments/master/entries/${productId}?access_token=${API_KEY}`,
     })
   ).data;
 

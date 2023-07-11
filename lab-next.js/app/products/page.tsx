@@ -3,11 +3,8 @@ import axios from 'axios';
 import Link from 'next/link';
 
 const BASE_URL = 'https://cdn.contentful.com';
-const op = '';
 const spaceID = process.env.SPACE_ID;
 const API_KEY = process.env.API_KEY;
-
-const BASE_IMAGE = `https://images.ctfassets.net/pary7vfe1hbq/4MNE230QVf8sxi2ZDzSakc/5e229104aa796cd58eff37463f2a0921/De3CsMmUwAEN0E2.png`;
 
 const getProducs = async () => {
   const result = (await axios({
