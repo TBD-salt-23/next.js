@@ -24,4 +24,4 @@ const productSchema = new Schema<ProductT>({
 });
 
 export const Product =
-  models.Product || model<ProductT>('product', productSchema);
+  models.product || model<ProductT>('product', productSchema);

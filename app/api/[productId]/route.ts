@@ -31,6 +31,6 @@ export const GET = async (
   console.log('Here comes the product id', productId);
 
   const res = await getProductById(productId);
-  console.log('log in route', res);
-  return NextResponse.json(res);
+  console.log('This should be quantity', res.quantity);
+  return NextResponse.json(res.quantity);
 };
