@@ -6,7 +6,16 @@ const spaceID = process.env.SPACE_ID;
 const API_KEY = process.env.API_KEY;
 
 type ProductProps = {
-  params: { productId: string };
+  params: { contentfulId: string };
+};
+//64ad26680bb21022ce3c1f5d
+const getQuantity = async (productId: string) => {
+  const res = await axios({
+    method: 'get',
+    url: `http://localhost:3000/api/${productId}`,
+  });
+  console.log(res.data);
+  return res.data;
 };
 
 const getProduct = async (productId: string) => {
@@ -32,11 +41,19 @@ const getProduct = async (productId: string) => {
 // };
 
 const product = async ({ params }: ProductProps) => {
-  const product = (await getProduct(params.productId)) as any;
+  const product = (await getProduct(params.contentfulId)) as any;
+  const quantity = getQuantity(product.fields.productId);
   console.log();
   console.log('here', product.fields.productDescription);
-  console.log(documentToReactComponents(product.fields.productDescription));
-  return <>{documentToReactComponents(product.fields.productDescription)}</>;
+  console.log('hopefully this is the id', product.fields.productId);
+
+  // console.log(documentToReactComponents(product.fields.productDescription));
+  return (
+    <>
+      {documentToReactComponents(product.fields.productDescription)}
+      <p>Quantity: {quantity}</p>
+    </>
+  );
 
   // <>
   //   {/* <div>{product.fields.productName}</div> */}
