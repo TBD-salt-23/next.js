@@ -22,7 +22,7 @@ export const getQuantity = async (productId: string) => {
   }
 };
 
-const getProduct = async (productId: string) => {
+export const getProduct = async (productId: string) => {
   try {
     const res = (
       await axios({
@@ -31,6 +31,7 @@ const getProduct = async (productId: string) => {
         url: `/spaces/${spaceID}/environments/master/entries/${productId}?access_token=${API_KEY}`,
       })
     ).data;
+    console.log('this is res', res);
 
     return res;
   } catch (error) {
