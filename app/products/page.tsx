@@ -13,18 +13,7 @@ const getProducs = async () => {
     url: `/spaces/${spaceID}/entries/?content_type=saltProducts&access_token=${API_KEY}`,
   })) as any;
 
-  // console.log(
-  //   'This is the description field',
-  //   result.data.items[0].fields.productDescription
-  // );
   return result.data.items.map((product: any, i: number) => {
-    console.log('this is the product', product.fields.productName);
-    console.log(
-      'This should be our boy',
-      result.data.includes.Asset.find((possibleImage: any) => {
-        return possibleImage.sys.id === product.fields.productImage.sys.id;
-      }).fields.file.url
-    );
     return (
       <div key={product.fields.productName + i}>
         <Link href={`/products/${product.sys.id}`}>

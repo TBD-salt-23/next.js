@@ -28,9 +28,6 @@ export const GET = async (
   context: { params: GetParams }
 ) => {
   const { productId } = context.params;
-  console.log('Here comes the product id', productId);
-
   const res = await getProductById(productId);
-  console.log('This should be quantity', res.quantity);
   return NextResponse.json(res.quantity);
 };
