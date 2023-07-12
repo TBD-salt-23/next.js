@@ -23,10 +23,7 @@ const getProductById = async (productId: string) => {
   }
 };
 
-export const GET = async (
-  req: NextApiRequest,
-  context: { params: GetParams }
-) => {
+export const GET = async (req: NextRequest, context: { params: GetParams }) => {
   const { productId } = context.params;
   const res = await getProductById(productId);
   return NextResponse.json(res.quantity);
