@@ -8,7 +8,7 @@ type GetParams = {
   productId: string;
 };
 
-const getProductById = async (productId: string) => {
+export const getProductById = async (productId: string) => {
   try {
     await connect(CONNECTION);
     console.log('this is the product id we feed to mongoose', productId);

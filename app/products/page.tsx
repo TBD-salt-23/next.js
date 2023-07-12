@@ -6,7 +6,7 @@ const BASE_URL = 'https://cdn.contentful.com';
 const spaceID = process.env.SPACE_ID;
 const API_KEY = process.env.API_KEY;
 
-const getProducs = async () => {
+const getProducts = async () => {
   const result = (await axios({
     method: 'get',
     baseURL: BASE_URL,
@@ -35,7 +35,7 @@ const getProducs = async () => {
 };
 
 const page = async () => {
-  const things = await getProducs();
+  const things = await getProducts();
   return <div>{things}</div>;
 };
 
