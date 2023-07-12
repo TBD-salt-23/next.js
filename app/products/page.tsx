@@ -16,7 +16,7 @@ const getProducts = async () => {
   return result.data.items.map((product: any, i: number) => {
     return (
       <div key={product.fields.productName + i}>
-        <Link href={`/products/${product.sys.id}`}>
+        <Link data-testId="productLink" href={`/products/${product.sys.id}`}>
           <h1>{product.fields.productName}</h1>
           <p>{product.fields.description}</p>
           <img

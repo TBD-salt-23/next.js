@@ -4,6 +4,7 @@ import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import { getProductById } from '@/app/api/[productId]/route';
 import { getProduct } from './page';
+import { expect } from '@jest/globals';
 
 const BASE_URL = 'http://localhost:3000/api';
 
